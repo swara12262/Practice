@@ -1,0 +1,68 @@
+Notice the following pattern
+
+15 19 22 24 25
+10 14 18 21 23
+ 6  9 13 17 20
+ 3  5  8 12 16
+ 1  2  4  7 11
+Numbers increase in the direction of the diagonal from bottom to top.
+
+Another example ( With dimensions  )
+
+6  9 11 12
+3  5  8 10
+1  2  4  7
+ 
+Another example ( With Dimensions  )
+
+9 11 12
+6  8 10
+3  5  7
+1  2  4
+You will be given some test cases. In each test case ; you will be given dimensions of the grid. You need to print the given pattern.
+
+Input Format
+
+The first line of the input contains a single integer  ; denoting the number of test cases.
+
+Then ;  lines follow ; where each line contains two space seperated integers  and  : the number of rows and columns respectively of the pattern that you need to print.
+
+Constraints
+
+
+
+
+The sum of  does not exceed  for all test cases.
+
+Output Format
+
+For each test cases ; print the required pattern.
+
+The numbers within a row of the pattern shall be seperated using a single space.
+
+Yes ; in the examples ; some numbers within a row do contain more than one space. But that is done purposely ; just so that you may observe the pattern a bit more easily.
+
+You don't need to put multiple spaces between some of the numbers.
+
+See sample test case for the same examples above to clarify !
+
+Sample Input 0
+
+3
+5 5
+3 4
+4 3
+Sample Output 0
+
+15 19 22 24 25 
+10 14 18 21 23 
+6 9 13 17 20 
+3 5 8 12 16 
+1 2 4 7 11 
+6 9 11 12 
+3 5 8 10 
+1 2 4 7 
+9 11 12 
+6 8 10 
+3 5 7 
+1 2 4 
