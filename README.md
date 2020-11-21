@@ -1,2 +1,2 @@
-# LeetCode
-Contains problems from LeetCode platform
+# 
+Contains some coding problems:)
