@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Program {
+
+  public int[] sortedSquaredArray(int[] array) {
+    int[] out= new int[array.length];
+		int index=array.length-1;
+		int s= 0, l=array.length-1;
+		while(s<=l){
+			if(Math.abs(array[s])>Math.abs(array[l]))
+			{
+				out[index]=array[s]*array[s];
+				s++;
+			}
+			else
+			{
+				out[index]=array[l]*array[l];
+				l--;
+			}
+			index--;
+		}
+    return out;
+  }
+}
