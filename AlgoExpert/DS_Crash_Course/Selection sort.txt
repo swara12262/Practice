@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Program {
+  public static int[] selectionSort(int[] array) {
+   int startIndx = 0;
+		while(startIndx<array.length){
+			int minIndx=startIndx;
+			
+			//to find minIndx
+			for(int i=startIndx+1;i<array.length;i++){
+				if(array[i]<array[minIndx])
+				{
+					minIndx=i;
+				}
+			}
+			//swap minIndx to startIndx
+			int tmp  =array[minIndx];
+			array[minIndx] = array[startIndx];
+			array[startIndx] = tmp;
+			startIndx++;
+		}
+    return array;
+  }
+}
