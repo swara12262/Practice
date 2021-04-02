@@ -1,0 +1,16 @@
+import java.util.*;
+
+class Program {
+  public static int[] twoNumberSum(int[] array, int targetSum) {
+    HashSet<Integer> set = new HashSet<Integer>();
+		for(int a: array)
+		{
+			if(set.contains((targetSum-a)))
+			{
+				return new int[]{a, (targetSum-a)};
+			}else
+				set.add(a);
+		}
+    return new int[0];
+  }
+}
