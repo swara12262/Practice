@@ -1,0 +1,23 @@
+class Solution {
+    public int longestStrChain(String[] words) {
+       Arrays.sort(words, new Comparator<String>(){
+           public int compare(String word1, String word2){
+                return word1.length()-word2.length();      
+           }
+       });
+        
+        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        int max = 0;
+        for(int i=0;i<words.length;i++){
+            String word = words[i];
+            int longest = 0;
+            for(int j=0;j<word.length();j++){
+                String s= word.substring(0,j)+word.substring(j+1);
+                longest = Math.max(longest, map.getOrDefault(s,0)+1);
+            }
+            map.put(word,longest);
+            max= Math.max(max, longest);
+        }
+        return max;
+    }
+}
