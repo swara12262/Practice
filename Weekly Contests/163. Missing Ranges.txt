@@ -1,0 +1,32 @@
+class Solution {
+    public List<String> findMissingRanges(int[] nums, int lower, int upper) {
+        List<String> res= new ArrayList<String>();
+        
+        if(nums.length==0)
+        {
+            res.add(format(lower, upper));
+        return res;
+            }
+        for(int i=0;i<nums.length;i++){
+            //first edge case
+	        if(i==0 && nums[i]!=lower){
+	            res.add(format(lower, nums[i]-1));
+            }
+            if(i!=0 && nums[i]!=nums[i-1]+1){
+	                res.add(format(nums[i-1]+1, nums[i]-1));
+            }
+            
+        }    
+            //second edge case
+            if( nums.length>0 && nums[nums.length-1]!=upper){
+	            res.add(format(nums[nums.length-1]+1, upper));
+            }
+        return res; 
+    }
+public  String format(int lower , int upper){
+	if (lower == upper) {
+            return String.valueOf(lower);
+        }
+        return lower + "->" + upper;
+}
+}
