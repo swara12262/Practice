@@ -1,0 +1,21 @@
+class Solution {
+    public int trap(int[] ht) {
+        int n =ht.length;
+        if(n==0)return 0;
+        int[] r= new int[n];
+        
+        int res= 0;
+        int maxTill = ht[0];
+        
+        r[ht.length-1]=ht[n-1];
+        for(int i=n-2;i>=0;i--)
+            r[i] = Math.max(r[i+1], ht[i]);
+        
+        for(int i=0;i<n;i++){
+            maxTill= Math.max(maxTill, ht[i]);
+            res+=Math.min(maxTill, r[i])-ht[i];
+            
+        }
+        return res;
+    }
+}
