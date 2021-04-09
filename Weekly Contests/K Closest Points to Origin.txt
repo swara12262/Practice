@@ -1,0 +1,32 @@
+class Solution {
+    public int[][] kClosest(int[][] points, int k) {
+        Point[] p= new Point[points.length];
+        int i=0;
+        for(int[] a: points){
+            Double dist=  Math.sqrt(a[0]*a[0]+a[1]*a[1]);
+            p[i] = new Point(a[0], a[1], dist);i++;
+        }
+        Arrays.sort(p, new Comparator<Point>(){
+            public int compare(Point p1 , Point p2){
+                return p1.dist.compareTo( p2.dist);
+            }
+        });
+        int[][] res=new int[k][2];
+         i=0;
+        while(k-->0){
+            res[i][0]=p[i].x;
+            res[i][1]=p[i].y;
+            i++;
+        }
+        return res;
+    }
+    
+}
+class Point{
+    int x; int y; Double dist;
+    Point(int x, int y, Double dist){
+        this.x=x;
+        this.y=y;
+        this.dist=dist;
+    }
+}
