@@ -1,0 +1,46 @@
+class Solution {
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        //make a genword to list of words map
+        //bfs traversal and find corressponding words we can go from given word        
+        int l  = beginWord.length();
+        HashMap<String, List<String>> map= new HashMap<String, List<String>>();
+        
+        for(String word: wordList){
+            
+            for(int i=0;i<l;i++){
+                String genword= word.substring(0, i)+'*'+word.substring(i+1,l);
+                
+                List<String> lst = map.getOrDefault(genword, new ArrayList<String>());
+                lst.add(word);
+                map.put(genword, lst);
+            }
+        }
+        
+        Queue<Pair<String, Integer>> q=new LinkedList<Pair<String, Integer>>();
+        HashMap<String, Boolean> vis=new HashMap<String, Boolean>();
+        q.add(new Pair(beginWord, 1));
+        vis.put(beginWord, true);
+        
+        while(!q.isEmpty()){
+            Pair<String, Integer> tmp = q.remove();
+            String s = tmp.getKey();
+            int level= tmp.getValue();
+            for(int i=0;i<l;i++){
+                String genword= s.substring(0, i)+'*'+s.substring(i+1,l);
+                
+                for(String str: map.getOrDefault(genword, new ArrayList<String>())){
+                    if(str.equals(endWord))
+                        return level+1;
+                    if(!vis.containsKey(str)){
+                        vis.put(str, true);
+                        q.add(new Pair(str, level+1));
+                    }
+                }
+            }
+            
+        }
+        return 0;
+        
+    
+    }
+}
